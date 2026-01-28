@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ржаная чиабатта без замеса</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfaf7;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .timer-active {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+    <!-- Header -->
+    <header class="relative h-64 bg-stone-800 flex items-center justify-center text-center text-white p-6">
+        <div class="absolute inset-0 overflow-hidden opacity-50">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bread background" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10">
+            <h1 class="text-4xl md:text-5xl mb-2">Ржаная чиабатта</h1>
+            <p class="text-lg italic opacity-90">Полезный хлеб без замеса в духовке</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        
+        <!-- Ingredients & Meta -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="md:col-span-1 bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                <h2 class="text-2xl mb-4 text-stone-700 border-b pb-2">Ингредиенты</h2>
+                <ul class="space-y-3">
+                    <li class="flex justify-between"><span>Вода (теплая)</span> <span class="font-semibold text-stone-600">330 г</span></li>
+                    <li class="flex justify-between"><span>Дрожжи (пресс.)</span> <span class="font-semibold text-stone-600">6 г</span></li>
+                    <li class="flex justify-between"><span>Оливковое масло</span> <span class="font-semibold text-stone-600">30 г</span></li>
+                    <li class="flex justify-between"><span>Мука пшеничная</span> <span class="font-semibold text-stone-600">300 г</span></li>
+                    <li class="flex justify-between"><span>Мука ржаная</span> <span class="font-semibold text-stone-600">80 г</span></li>
+                    <li class="flex justify-between"><span>Соль</span> <span class="font-semibold text-stone-600">7 г</span></li>
+                </ul>
+                <div class="mt-8 p-4 bg-amber-50 rounded-xl border border-amber-100 text-sm text-amber-800">
+                    <strong>Инфо:</strong> 1-й сорт пшеничной муки и ржаная обдирная мука — лучший выбор для этого рецепта.
+                </div>
+            </div>
+
+            <div class="md:col-span-2">
+                <h2 class="text-3xl mb-6 text-stone-800">Инструкция</h2>
+                
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-500">
+                        <div class="flex items-start">
+                            <span class="bg-amber-100 text-amber-700 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">1</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Подготовка основы</h3>
+                                <p class="text-gray-600">В глубокой емкости растворите дрожжи в воде. Добавьте оливковое масло и перемешайте.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-500">
+                        <div class="flex items-start">
+                            <span class="bg-amber-100 text-amber-700 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">2</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Смешивание</h3>
+                                <p class="text-gray-600">Всыпьте муку и соль. Перемешайте лопаткой до однородности. Накройте пленкой на 20 мин.</p>
+                                <button onclick="startTimer(20, this)" class="mt-3 px-4 py-1 bg-stone-100 hover:bg-stone-200 rounded-full text-sm font-medium transition-colors">Запустить таймер (20 мин)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border-l-4 border-amber-600">
+                        <div class="flex items-start">
+                            <span class="bg-amber-200 text-amber-800 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">3</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Цикл складываний (Stretch & Fold)</h3>
+                                <p class="text-gray-600 mb-4">Смочите руки. Тяните край вверх и складывайте к центру. Повторите 3 раза с интервалом 20 мин.</p>
+                                <div class="flex gap-2">
+                                    <button onclick="startTimer(20, this)" class="px-3 py-1 border border-stone-200 rounded-lg text-xs">1-е (20 м)</button>
+                                    <button onclick="startTimer(20, this)" class="px-3 py-1 border border-stone-200 rounded-lg text-xs">2-е (20 м)</button>
+                                    <button onclick="startTimer(40, this)" class="px-3 py-1 border border-stone-200 rounded-lg text-xs">3-е (40 м)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border-l-4 border-stone-800">
+                        <div class="flex items-start">
+                            <span class="bg-stone-800 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">4</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Формовка</h3>
+                                <p class="text-gray-600">Разделите тесто на две части на припыленном мукой полотенце. Оставьте на расстойку на 30 мин.</p>
+                                <button onclick="startTimer(30, this)" class="mt-3 px-4 py-1 bg-stone-100 hover:bg-stone-200 rounded-full text-sm font-medium transition-colors">Расстойка (30 мин)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-card bg-stone-900 text-white p-6 rounded-2xl shadow-lg border-l-4 border-amber-500">
+                        <div class="flex items-start">
+                            <span class="bg-amber-500 text-stone-900 rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">5</span>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Выпекание (220°C)</h3>
+                                <ul class="list-disc list-inside space-y-2 text-stone-300">
+                                    <li>10 мин с паром (налить воду в поддон)</li>
+                                    <li>15 мин без пара до золотистой корочки</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center text-stone-400 text-sm border-t pt-8">
+            <p>Наслаждайтесь полезным домашним хлебом!</p>
+        </footer>
+    </main>
+
+    <script>
+        function startTimer(minutes, button) {
+            if (button.dataset.running === "true") return;
+            
+            const originalText = button.innerText;
+            button.dataset.running = "true";
+            button.classList.add('timer-active', 'bg-amber-500', 'text-white');
+            button.classList.remove('bg-stone-100');
+
+            let seconds = minutes * 60;
+            const interval = setInterval(() => {
+                const m = Math.floor(seconds / 60);
+                const s = seconds % 60;
+                button.innerText = `Осталось ${m}:${s < 10 ? '0' : ''}${s}`;
+                
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    button.innerText = "Готово! ✓";
+                    button.classList.remove('timer-active');
+                    button.dataset.running = "false";
+                    
+                    // Простой звуковой сигнал или уведомление
+                    if ("Notification" in window && Notification.permission === "granted") {
+                        new Notification("Время вышло!", { body: "Пора переходить к следующему шагу хлеба." });
+                    } else {
+                        alert("Время шага истекло!");
+                    }
+                }
+                seconds--;
+            }, 1000);
+        }
+
+        // Запрос разрешения на уведомления
+        if ("Notification" in window) {
+            Notification.requestPermission();
+        }
+    </script>
+</body>
+</html>
